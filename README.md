@@ -69,7 +69,7 @@ In project root...
 ```bash
 ng build txm-components
 ## first time run install then just stop server, build, serve
-npm install dist/txm-components
+npm install file:dist/txm-components --no-save
 ```
 ## Add TxmComponentsModule to txmapp\app.module.ts
 import { TxmComponentsModule } from 'txm-components';
@@ -86,7 +86,18 @@ The solution is to edit package.json to remove the reference to the dist/ars-com
 
 ```bash
 npm install
-ng build ars-components
-npm install dist/ars-components
+ng build txm-components
+npm install file:dist/txm-components --no-save
 ```
 
+cd dist/ars-components
+npm pack
+npm install {path to the tgz file}/ars-components.tgz
+
+package-lock.json 10046
+    "txm-components": {
+      "version": "file:dist/txm-components",
+      "requires": {
+        "tslib": "^1.9.0"
+      }
+    },
