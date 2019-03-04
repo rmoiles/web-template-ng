@@ -68,4 +68,13 @@ NOTE: Make sure you add the compenents as exports in txm-components.module.ts
 In project root...
 ```bash
 ng build txm-components
+## first time run install then just build after
+npm install dist/txm-components
 ```
+## Add TxmComponentsModule to txmapp\app.module.ts
+import { TxmComponentsModule } from 'txm-components';
+  imports: [
+    BrowserModule,
+    TxmComponentsModule
+  ],
+
