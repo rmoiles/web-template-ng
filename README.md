@@ -54,3 +54,18 @@ ng serve
 ng serve txmwebsite --port 4201
 ng serve txmapp --port 4202
 ```
+## Adding components to library
+
+```bash
+ng g component checkbox --project=txm-components
+ng g component textinput --project=txm-components
+```
+
+NOTE: Make sure you add the compenents as exports in txm-components.module.ts
+
+## Build Library
+
+In project root...
+```bash
+ng build txm-components
+```
