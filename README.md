@@ -101,3 +101,8 @@ package-lock.json 10046
         "tslib": "^1.9.0"
       }
     },
+    
+## Helpful Git config
+
+git config –global credential.helper manager
+git config –global credential.interactive never
