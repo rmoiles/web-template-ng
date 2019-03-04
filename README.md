@@ -25,3 +25,32 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## creating this project
+
+https://medium.com/@SirMaxxx/angular-6-creating-a-shareable-control-library-6a27f0ebe5c2
+
+```bash
+ng new web-template-ng -s
+cd web-template-ng
+ng generate library txm-components -p txm
+ng g application txmwebsite --prefix web
+ng g application txmapp --prefix app
+```
+## serve the different projects
+
+Main App
+http://localhost:4200/
+
+TXM - Web
+http://localhost:4201/
+
+TXM - App
+http://localhost:4202/
+
+Open a different bash for each command
+```bash
+ng serve
+ng serve txmwebsite --port 4201
+ng serve txmapp --port 4202
+```

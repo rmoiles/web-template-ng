@@ -152,6 +152,297 @@
           }
         }
       }
+    },
+    "txm-components": {
+      "root": "projects/txm-components",
+      "sourceRoot": "projects/txm-components/src",
+      "projectType": "library",
+      "prefix": "txm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/txm-components/tsconfig.lib.json",
+            "project": "projects/txm-components/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/txm-components/src/test.ts",
+            "tsConfig": "projects/txm-components/tsconfig.spec.json",
+            "karmaConfig": "projects/txm-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/txm-components/tsconfig.lib.json",
+              "projects/txm-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "txmwebsite": {
+      "root": "projects/txmwebsite/",
+      "sourceRoot": "projects/txmwebsite/src",
+      "projectType": "application",
+      "prefix": "web",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/txmwebsite",
+            "index": "projects/txmwebsite/src/index.html",
+            "main": "projects/txmwebsite/src/main.ts",
+            "polyfills": "projects/txmwebsite/src/polyfills.ts",
+            "tsConfig": "projects/txmwebsite/tsconfig.app.json",
+            "assets": [
+              "projects/txmwebsite/src/favicon.ico",
+              "projects/txmwebsite/src/assets"
+            ],
+            "styles": [
+              "projects/txmwebsite/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/txmwebsite/src/environments/environment.ts",
+                  "with": "projects/txmwebsite/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "txmwebsite:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "txmwebsite:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "txmwebsite:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/txmwebsite/src/test.ts",
+            "polyfills": "projects/txmwebsite/src/polyfills.ts",
+            "tsConfig": "projects/txmwebsite/tsconfig.spec.json",
+            "karmaConfig": "projects/txmwebsite/karma.conf.js",
+            "styles": [
+              "projects/txmwebsite/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/txmwebsite/src/favicon.ico",
+              "projects/txmwebsite/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/txmwebsite/tsconfig.app.json",
+              "projects/txmwebsite/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "txmwebsite-e2e": {
+      "root": "projects/txmwebsite-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/txmwebsite-e2e/protractor.conf.js",
+            "devServerTarget": "txmwebsite:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "txmwebsite:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/txmwebsite-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "txmapp": {
+      "root": "projects/txmapp/",
+      "sourceRoot": "projects/txmapp/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/txmapp",
+            "index": "projects/txmapp/src/index.html",
+            "main": "projects/txmapp/src/main.ts",
+            "polyfills": "projects/txmapp/src/polyfills.ts",
+            "tsConfig": "projects/txmapp/tsconfig.app.json",
+            "assets": [
+              "projects/txmapp/src/favicon.ico",
+              "projects/txmapp/src/assets"
+            ],
+            "styles": [
+              "projects/txmapp/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/txmapp/src/environments/environment.ts",
+                  "with": "projects/txmapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "txmapp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "txmapp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "txmapp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/txmapp/src/test.ts",
+            "polyfills": "projects/txmapp/src/polyfills.ts",
+            "tsConfig": "projects/txmapp/tsconfig.spec.json",
+            "karmaConfig": "projects/txmapp/karma.conf.js",
+            "styles": [
+              "projects/txmapp/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/txmapp/src/favicon.ico",
+              "projects/txmapp/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/txmapp/tsconfig.app.json",
+              "projects/txmapp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "txmapp-e2e": {
+      "root": "projects/txmapp-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/txmapp-e2e/protractor.conf.js",
+            "devServerTarget": "txmapp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "txmapp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/txmapp-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "web-template-ng"

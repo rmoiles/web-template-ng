@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "txm-components": [
+        "dist/txm-components"
+      ],
+      "txm-components/*": [
+        "dist/txm-components/*"
+      ]
+    }
   }
 }
